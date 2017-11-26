@@ -1,0 +1,22 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources" : {
+    "SampleLambda": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code" : {
+          "S3Bucket": "serverless-pipeline-artifacts",
+          "S3Key": "artifacts/sample-node.zip"
+        },
+        "Description" : "Sample Lambda Function for Demo",
+        "FunctionName" : "sample-nodejs",
+        "Handler" : "index.handler",
+        "Environment": {"Variables": {"env": "qa"}},
+        "Role" : "arn:aws:iam::881363185531:role/service-role/exampleRole_Kavya",
+        "Runtime" : "nodejs6.10",
+        "Timeout" : "10",
+        "Tags" : [{"Key": "Name", "Value": "SampleLambda"}]
+      }
+    }
+  }
+}
